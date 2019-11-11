@@ -29,6 +29,7 @@ const styles=StyleSheet.create({
 	TextStyle:{
 		fontSize:20
 	}
-});
+})
+
 
 export default ListScreen
