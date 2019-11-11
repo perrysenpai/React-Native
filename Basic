@@ -1,0 +1,6 @@
+Props vs State
+props: all about communicating data from parent to child
+state:tracking a single piece of data that whenever changes we want to update what appears on screens
+
+
+hook: hook is a fxn that adds a new fxnality to a funcitonality component.
