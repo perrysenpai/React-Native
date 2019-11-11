@@ -2,31 +2,32 @@ import React from 'react';
 import {Text, StyleSheet, View, FlatList} from 'react-native'
 
 const ListScreen=()=>{
-	const list=[
-	{name: "friend1"},
-	{name: "friend2"},
-	{name: "friend3"},
-	{name: "friend4"},
-	{name: "friend5"},
-	{name: "friend6"},
-	{name: "friend7"},
-	{name: "friend8"}
+	const friend=[
+		{name:"Friend 1", age:"20"},
+		{name:"Friend 2", age:"20"},
+		{name:"Friend 3", age:"20"},
+		{name:"Friend 4", age:"20"},
+		{name:"Friend 5", age:"20"},
+		{name:"Friend 6", age:"20"},
+		{name:"Friend 7", age:"20"},
 	];
-{/*  we can do {name: "friend1" , key:"1"} for every element of the flatlist or do the following*/  }
+
+
 	return (
-	<FlatList 
-	keyExtractor={(friend)=>friend.name}
-	data={list}
-	renderItem={({item})=>{
-		return <Text>{item.name}</Text>;
-	}}
-	/>
-	);
+		<FlatList
+		keyExtractor={(friend)=>friend.name}
+		data={friend}
+		renderItem={({item})=>{
+			return <Text>{item.name} - AGE {item.age}</Text>
+		}}
+		/>
+		);
 };
 
-const stylefx=StyleSheet.create({
-	style:{
-		fontSize:30
+
+const styles=StyleSheet.create({
+	TextStyle:{
+		fontSize:20
 	}
 });
 
