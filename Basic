@@ -11,3 +11,37 @@ react-native cli
 
 
 inside cmd: npx expo-cli init food
+
+React Navigation: vid 84
+to install react navigator : npm install react navigation
+
+
+
+LECTURE 85:
+React Navigation Fix
+React Navigation has changed a bit since their recent v.4.0.0 release:
+
+https://github.com/react-navigation/react-navigation/releases/tag/v4.0.0
+
+We must now install three libraries separately. In your terminal run the following command:
+
+npx expo-cli install react-native-gesture-handler react-native-reanimated react-navigation-stack
+
+Our imports in the upcoming lecture will now look like this:
+
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
+
+
+TO install a screen make a new folder src/srcreens
+
+
+to use an icon in an expo-cli project check for expo/vector-icons search for the symbol and use it as 
+import {Feather} from '@expo/vector-icons';
+inside jsx  <Feather name='search' size={30}/>
+
+
+
+Anytime we want a make a network request from react native app we have many options: two of these are
+1. fetch
+2. axios
