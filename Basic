@@ -45,3 +45,8 @@ inside jsx  <Feather name='search' size={30}/>
 Anytime we want a make a network request from react native app we have many options: two of these are
 1. fetch
 2. axios
+
+to insall axios
+
+*/////////////any netwrok request is async operation.*///////////////
+SEE LECTURE 95
