@@ -4,3 +4,10 @@ state:tracking a single piece of data that whenever changes we want to update wh
 
 
 hook: hook is a fxn that adds a new fxnality to a funcitonality component.
+
+A project can be generated using twi cmd line tools:
+expo-cli
+react-native cli
+
+
+inside cmd: npx expo-cli init food
