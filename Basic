@@ -50,3 +50,10 @@ to insall axios
 
 */////////////any netwrok request is async operation.*///////////////
 SEE LECTURE 95
+
+
+We use useEffect hook to allow some piece of code to run only once when the app is ran first time. it takes two arguments
+1.  useEffect(()=>{}) every time the component is rendered.
+2.  useEffect(()=>{}, [])  run the arrow fxn only once when first rendered.
+3.  useEffect(()=>{}, [value]), run at first render and every time the 'value' chnges
+
