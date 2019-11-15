@@ -61,3 +61,18 @@ useEffect(()=>{
         searchApi('pasta');
       },[]);
 
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+anytime it feels like the view is cutting off the screen we will use flex:1
+also , view can sometime expand or shrink , so what we can do is to use <></> instead of view which can solve a lot of our problems.
+
+
+
+Navigation: if we want to go to a screen from a particular screen we have to use the props.navigate , but what if this screen is no the home screen
+then what we do is pass on this navigation as a prop to its childs so that we can use it from over there.
+
+Or another thing that could be done is 
+import {withNavigation}  from 'react-navigation';
+we can use withNavigation function that resturns special version of our component that has navigation .
+<TouchableOpacity onPress={()=> navigation.navigate('ResultsShow', {id:item.id})}>
+{/*when our results show screen is displayer it woll have an extra info of item id*/ }
