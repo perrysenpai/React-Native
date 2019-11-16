@@ -83,4 +83,5 @@ CONTEXTS:  SImilar to props. by using props we can send info from parent to imme
 to child and from child to grandchild.
 this is not the case with props.
 However it is a lil bit complicated to set up and has some specual terms
+Context is just about moving data
 
