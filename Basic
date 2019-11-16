@@ -76,3 +76,11 @@ import {withNavigation}  from 'react-navigation';
 we can use withNavigation function that resturns special version of our component that has navigation .
 <TouchableOpacity onPress={()=> navigation.navigate('ResultsShow', {id:item.id})}>
 {/*when our results show screen is displayer it woll have an extra info of item id*/ }
+
+
+
+CONTEXTS:  SImilar to props. by using props we can send info from parent to immediate child and to tranfer info to grandchild we hve to first send info
+to child and from child to grandchild.
+this is not the case with props.
+However it is a lil bit complicated to set up and has some specual terms
+
