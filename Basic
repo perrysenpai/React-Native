@@ -85,3 +85,9 @@ this is not the case with props.
 However it is a lil bit complicated to set up and has some specual terms
 Context is just about moving data
 
+
+we can send data through navigation.navigate to pther screen 
+navigation.navigate('Show',{id: item.id})
+
+to retruve it in other screen we use navigation.getParam('id')
+
