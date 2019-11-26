@@ -91,3 +91,8 @@ navigation.navigate('Show',{id: item.id})
 
 to retruve it in other screen we use navigation.getParam('id')
 
+Every time we start out blogpost app out posts are gone so we ned somewhere to store those. We use json server which is not good for production but good for dev purpose
+
+we will insatll ngrok which is a server which makes the services runnign on computer with outside world
+to set up json server: we make a new directory or folder inside the  workspace not inside the app folder and install as shown in sec13 154
+
