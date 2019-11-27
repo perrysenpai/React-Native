@@ -13,7 +13,7 @@ react-native cli
 inside cmd: npx expo-cli init food
 
 React Navigation: vid 84
-to install react navigator : npm install react navigation
+to install react navigator : npm install react-navigation
 
 
 
