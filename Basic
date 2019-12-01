@@ -96,3 +96,10 @@ Every time we start out blogpost app out posts are gone so we ned somewhere to s
 we will insatll ngrok which is a server which makes the services runnign on computer with outside world
 to set up json server: we make a new directory or folder inside the  workspace not inside the app folder and install as shown in sec13 154
 
+
+react-natve-elemennts can be used to have more custom built functions with some oredefined styles
+
+we used navigation.addlistener('didfocus') property to see is current screeen was being fooucsed, alternatively we can use NavigationEvenets
+as shown inlecture 212
+
+
