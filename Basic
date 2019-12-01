@@ -103,3 +103,11 @@ we used navigation.addlistener('didfocus') property to see is current screeen wa
 as shown inlecture 212
 
 
+we can use SafeAreaView lecture 216 , to make sure our view is not overlapped by the top status bar of phone
+
+maps library :npx expo-cli install react-native-maps
+we use expo-location:used to track user loc
+npx expo-cli insatll expo-location
+
+to reset permissions:adb shell pm reset-permissions
+
