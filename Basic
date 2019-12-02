@@ -111,3 +111,5 @@ npx expo-cli insatll expo-location
 
 to reset permissions:adb shell pm reset-permissions
 
+we can use a third way called  withNaviagtioFocus vid 233
+
