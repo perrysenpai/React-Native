@@ -1,0 +1,12 @@
+//imports
+import React from 'react';
+import {Text} from 'react-native'  //we dont want to import Whole ReactNative but only its property/object Text 
+
+//creating components
+const App=()=>{
+  return(
+    <Text></Text>
+  );
+}
+
+
