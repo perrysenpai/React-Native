@@ -134,3 +134,11 @@ IMPORTANT XXX: if we want to add a text( from textinput) to an array , ALWAYS ma
   ALWAYS dont do setListGoals([...listgoals,inputText])
   do setListGoals((listgoals)=>[...listgoals,inputText])   because it works %
                
+               
+ FlatList: <FlatList  
+                data={listgoals}
+                renderItem={({item})=><Text>{item.index}</Text>}
+                keyExtractor={(item, index)=>item.id}
+           />
+           
+           each array element of listgoals is as {value: inputText, id : Math.random().toString() }
