@@ -113,3 +113,24 @@ to reset permissions:adb shell pm reset-permissions
 
 we can use a third way called  withNaviagtioFocus vid 233
 
+
+
+
+********************************************************************
+another tut
+when not using flatlist , if we want to render array say listgoals items on screens we can use
+       <View>
+        {listgoals.map((goals)=> <Text>{goals}</Text>)}
+      </View>
+IMPORTANT XXX: if we want to add a text( from textinput) to an array , ALWAYS make an additional function , and pass that to the onPress prop, 
+               like :
+               
+  const listhandler=()=>{
+    setListGoals((listgoals)=>[...listgoals,inputText])
+  }
+  <Button title="press" onPress={listhandler}/>
+  
+  also 
+  ALWAYS dont do setListGoals([...listgoals,inputText])
+  do setListGoals((listgoals)=>[...listgoals,inputText])   because it works %
+               
