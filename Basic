@@ -142,3 +142,8 @@ IMPORTANT XXX: if we want to add a text( from textinput) to an array , ALWAYS ma
            />
            
            each array element of listgoals is as {value: inputText, id : Math.random().toString() }
+           
+           
+   useRef hook: allows to create object to bind to input elements, BUT HERE WE USE IT FOR:
+   *****It allows us to define a value that survive component RERENDERS.
+   
