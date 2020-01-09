@@ -160,3 +160,11 @@ useEffect(()=>{
                  const {userChoice, onGameOver}=props;
                  and then pass on the destructured values to the dependencies of the hooks
    
+while styling images if we want a circular image then wrap the image inside the View component and then make height and width equal say 300
+and then set borderRadius=half i.e 150 . now still the bounries are set for view but the image exceed the boundries. For this we can  make use
+of the styling property *********overlay: "hidden"
+ //any child inside container that would break out of boundries container is cut off
+ 
+ 
+
+
