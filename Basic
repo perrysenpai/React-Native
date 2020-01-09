@@ -165,6 +165,8 @@ and then set borderRadius=half i.e 150 . now still the bounries are set for view
 of the styling property *********overlay: "hidden"
  //any child inside container that would break out of boundries container is cut off
  
- 
+ //source={{uri:"image url "})} is used for network image
 
+
+We can nest Text Components inside each other and style them accordingly, nested Text Components are passed down to children unlike the View Components .
 
