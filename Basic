@@ -147,3 +147,16 @@ IMPORTANT XXX: if we want to add a text( from textinput) to an array , ALWAYS ma
    useRef hook: allows to create object to bind to input elements, BUT HERE WE USE IT FOR:
    *****It allows us to define a value that survive component RERENDERS.
    
+UseEffect Hook: it has two parts 
+useEffect(()=>{
+        if(currentGuess===userChoice)
+        {
+            onGameOver(rounds);
+        }
+    }, [currentGuess, userChoice, onGameOver]);
+1. function
+2. dependencies: whenever any of these values change the function of useEffect is executed
+                 dont use props.userChoice etc otherwise whenever props change the function is run. so better do 
+                 const {userChoice, onGameOver}=props;
+                 and then pass on the destructured values to the dependencies of the hooks
+   
