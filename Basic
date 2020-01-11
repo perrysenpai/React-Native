@@ -178,13 +178,41 @@ inside stylesheet{
         }
 }
 
+
+
 DEVICE ORIENTATION: In app.json we can look for the orientation which is set to portrait b default , it can be set to "default" to make sure that our 
 application is rotatable.
+
+when we rotate the device the above width of button on line 177 is only calculated when we start the device, if device is in portrait then width is calculated accourdingly 
+and if it is landscape then acc. to that.
+The simple fix for that , i.e we want it to be recalculated when orientation changes then we should not use Dimesions-width fetaure , but manage the width 
+through state like this
+const[buttonwidth, setWidth= useState(Dimmensions.get("window").width/4)
+const updateLayout=()=>{
+        setWidth(Dimmensions.get("window").width/4);
+}
+Dimensions.addEventListner("change", updateLayout) // this is called automagically when we rotate the device
+now <Button style={{width: buttonwidth
+PROBLEM: whenever we are roatting the device we are at the moment creating new eventListners on the go. So  cleaner code would be to   
+         remove the previous EventListner , this can be done with useEffect, so that on every rerender we remove the previous listener and
+         add a new one.
+         
+         useEffect(()=>{
+                const updateLayout=()=>{
+                        setWidth(Dimmensions.get("window").width/4);
+                }
+                Dimensions.addEventListner("change", updateLayout)
+                return()=>{
+                        Dimensions.removeEventListner("change", updateLayout)
+                }
+                // this return function is executed right before useEffect each time.
+         })
+
 
 KeyBoardAvoiding from react native is used is used to wrap our component to make sure that our keyboard when it opens up never overlays the input that
 we type in.
 
-USAGE: <KeyBoardAVoidingView behavior="position/"
+USAGE: <KeyBoardAVoidingView behavior="position/" KeyboardVerticalOffset= />
 
 
 
