@@ -231,8 +231,40 @@ ScreenOrientation.lockAsync(ScreenOrientatiton.OrientationLock.Portrait}
 ScreenOrientation.getOrientationAsync() // to get the Screen Orientation
 
 
-PLATFORM API:
+PLATFORM API: helps to find out the platform we are running the app on
+We can use use it in styling different for both OS.
+e.g
+Syles=StyleSheet.create({
+        viewStyle:{
+                backgroundColor: Platform.OS==="android"? "white": "black;
+        }
+});
 
 
+We can do is if if we have a basic style for both and specific style for android and ios like this:
 
+base:{
+        
+}
+iosStyle:{
 
+} 
+androidStyle:{
+
+}
+
+then we can do like this : <View style={{...Syles.base, Platform.select({ios: Styles.iosStyle, android: Styles.android})  }}>
+
+React native has TouchableNativeFeedback for android which has ripple effect on click:
+USAGE: let ButtonComponent=TOuchableOpacity
+        if(Platform.OS==="android" && Platform.Version>=21)
+        {
+                ButtonComponent=TouchableNativeFeedback
+        }
+        <ButtonComponent />
+        
+        we can add a <VIEW> outside this ButtonComponent and make overflow: "hidden" if we have a cicular button.
+        
+  We can split our file into MainScreen.ios.js and  MainScreen.android.js. and on import we DONT need to do import MainScreen from "../screens/MainScreen.ios"
+  but directyly  "../screens/MainScreen", REACT automatically imports correct acc to the platofrm
+  
