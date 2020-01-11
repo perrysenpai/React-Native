@@ -170,3 +170,22 @@ of the styling property *********overlay: "hidden"
 
 We can nest Text Components inside each other and style them accordingly, nested Text Components are passed down to children unlike the View Components .
 
+the Dimaensions object from 'react-native' lets us allow how much pixels we have available from the screen height and width
+import {Dimensions} from 'react-native'
+inside stylesheet{
+        button:{
+                width:Dimmensions.get("window").width/4
+        }
+}
+
+DEVICE ORIENTATION: In app.json we can look for the orientation which is set to portrait b default , it can be set to "default" to make sure that our 
+application is rotatable.
+
+KeyBoardAvoiding from react native is used is used to wrap our component to make sure that our keyboard when it opens up never overlays the input that
+we type in.
+
+USAGE: <KeyBoardAVoidingView behavior="position/"
+
+
+
+
