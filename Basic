@@ -225,4 +225,14 @@ const App=()=>{
 }
 
 
+import {ScreenOrientation} from "expo"
+it has various features like , if we want to lock screen to be non rotatable, we can add
+ScreenOrientation.lockAsync(ScreenOrientatiton.OrientationLock.Portrait}
+ScreenOrientation.getOrientationAsync() // to get the Screen Orientation
+
+
+PLATFORM API:
+
+
+
 
