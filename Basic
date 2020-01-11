@@ -214,6 +214,15 @@ we type in.
 
 USAGE: <KeyBoardAVoidingView behavior="position/" KeyboardVerticalOffset= />
 
+if we want different thing to appear on roatating the device then , we can use if statetment:
+const App=()=>{
+      if(Condition)
+      {
+        return <View></View>
+      }
+      else
+      return <View></View>
+}
 
 
 
