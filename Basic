@@ -28,6 +28,15 @@ We must now install three libraries separately. In your terminal run the followi
 npx expo-cli install react-native-gesture-handler react-native-reanimated react-navigation-stack
 expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context
 
+Same for TabsNavigator (used a little bit later in this module):
+
+npm install --save react-navigation-tabs
+import { createBottomTabNavigator } from 'react-navigation-tabs';
+And also for DrawerNavigator (also used later in this module):
+
+npm install --save react-navigation-drawer
+import { createDrawerNavigator } from 'react-navigation-drawer';
+
 Our imports in the upcoming lecture will now look like this:
 
 import { createAppContainer } from 'react-navigation';
