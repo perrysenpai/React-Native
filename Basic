@@ -152,7 +152,8 @@ IMPORTANT XXX: if we want to add a text( from textinput) to an array , ALWAYS ma
            />
            
            each array element of listgoals is as {value: inputText, id : Math.random().toString() }
-           
+           we can have more that one columns, i.e a grid by default it is one. we use
+           <FlatList numColumns={2}/>
            
    useRef hook: allows to create object to bind to input elements, BUT HERE WE USE IT FOR:
    *****It allows us to define a value that survive component RERENDERS.
@@ -193,7 +194,7 @@ inside stylesheet{
 DEVICE ORIENTATION: In app.json we can look for the orientation which is set to portrait b default , it can be set to "default" to make sure that our 
 application is rotatable.
 
-when we rotate the device the above width of button on line 177 is only calculated when we start the device, if device is in portrait then width is calculated accourdingly 
+when we rotate the device the above width of button on line 187 is only calculated when we start the device, if device is in portrait then width is calculated accourdingly 
 and if it is landscape then acc. to that.
 The simple fix for that , i.e we want it to be recalculated when orientation changes then we should not use Dimesions-width fetaure , but manage the width 
 through state like this
@@ -311,3 +312,15 @@ USAGE: let ButtonComponent=TOuchableOpacity
 
   }
   
+  REACT NAVIGATION: we can use props.navigation.push("CategoryMeals") instead of props.navigation.navigate("CategoryMeals");
+                    push is useful when we want ot go to a page we already are on .
+                    
+                    Sometimes we need that when we press a save button state config is saved and we atomatically go backk to 
+                    the previous screen. without pressing the back button.
+                    navigation.navigate.goBack() can be used in all the navigators
+                    also can use navigate.pop(); though it cant be used in othert navigators but stack nav only
+                    navigate.popToTop() takes to our root screen.
+                    navigate.replace("screenname") and has no other screen, can be used in sign in screen 
+                    when user is signed in, user shouldnt be allowed to go back to login screen.
+ 
+ 
