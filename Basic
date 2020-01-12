@@ -322,5 +322,45 @@ USAGE: let ButtonComponent=TOuchableOpacity
                     navigate.popToTop() takes to our root screen.
                     navigate.replace("screenname") and has no other screen, can be used in sign in screen 
                     when user is signed in, user shouldnt be allowed to go back to login screen.
+                    
+we can provide header to each page using 
+CategoriesScreen.navigationOptions={
+    headerTitle:" Meal Categories",
+};
  
+other than that we can also have in our navigator.js file navigatioOptions setup like this:
+
+const MealsNavigator=createStackNavigator({
+    Categories:  CategoriesScreen,
+    CategoryMeals:{ 
+                   screen: CategoriesMealsScreen ,
+                   navigationOptions:{
+                                      headerTitle:" Meal Categories",
+                                      };
+                   }, 
+    MealDetail:MealDetailScreen
+},{    
+        XXXXXXXPARAMETERS HEREXXXXXXXXXX
+        defaultNavigationOptions:{  // THESE ARE MERGED WITH INDIVIDUAL NAVIGATION OPTIONS
+        headerStyle:{
+            backgroundColor:colors.primaryColor
+        },
+        headerTintColor:"white"
+    }
+});
+
+XXXXXXXPARAMETERS HEREXXXXXXXXXX:       we can have here mode:"modal" which gives us a different effect on navigation from screen to screen.
+                                                         initalRouteName:"MealDetails" // cam be used if not want the first key 
  
+OTHER IMPORTANT THING TO DO WITH REACT NAVIAGTION: npm install react-native-screens. which allows to ensure that under the hood, that rn uses
+native optimised screen component provided by android and ios. like fragment on android and UIviewController on ios. its good practice.
+to use it
+import {useScreens} from "react-native-screens"
+
+useScreens() // run just after imports in App,js
+
+const App=()=>{
+
+}
+
+
