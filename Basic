@@ -26,6 +26,7 @@ https://github.com/react-navigation/react-navigation/releases/tag/v4.0.0
 We must now install three libraries separately. In your terminal run the following command:
 
 npx expo-cli install react-native-gesture-handler react-native-reanimated react-navigation-stack
+expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context
 
 Our imports in the upcoming lecture will now look like this:
 
