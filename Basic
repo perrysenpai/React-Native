@@ -268,3 +268,36 @@ USAGE: let ButtonComponent=TOuchableOpacity
   We can split our file into MainScreen.ios.js and  MainScreen.android.js. and on import we DONT need to do import MainScreen from "../screens/MainScreen.ios"
   but directyly  "../screens/MainScreen", REACT automatically imports correct acc to the platofrm
   
+  FONTS: to use different fonts, we need the ttf file firstly, then we need to do:
+  
+  import * as Font from "expo-font"
+  import {AppLoading} from "expo"
+  
+  const fetchFonts =()=>{
+        return Font.loadAsync({
+        "open-sans":require("./loaction/OpenSans-Regular.ttf"),
+        "open-sans-bold":require("./loaction/OpenSans-bold.ttf"),
+  })}
+  
+  inside the component:{  // we check if fonts are loaded, initally they are not
+        const [fontLoaded, setFontLoaded]=useState(false);
+        if(!fontLoaded)
+        {
+                return(
+                        <Apploading 
+                                      startAsync=(fetchFonts)
+                                      onFinish={()=>setFontLoaded(true}}
+                        />
+                        //Apploading must always have two things startAsync which starts a function that returns a promise(value)
+                          onFinish which does a thing that must be done after the function is done
+                )
+        }
+        
+        return(
+                <View style={styles.container}>
+                        <Text>Open up App.js to start working on your app!</Text>
+                </View>
+        )
+
+  }
+  
