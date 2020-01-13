@@ -418,5 +418,5 @@ Don't mistake this for the defaultNavigationOptions which you could also set the
 
 
 
-npm install react-navigation-paper
+npm install react-native-paper
 npm install react-navigation-material-bottom-tabs.
