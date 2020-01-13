@@ -363,4 +363,60 @@ const App=()=>{
 
 }
 
+USING ICONS IN HEADERS: Using Custom Header 
+npm install --save react-navigation-header-buttons
 
+
+in HeaderButton.js
+import { HeaderButton } from "react-navigation-header-buttons";
+import { Ionicons } from "@expo/vector-icons";
+const CustomHeaderButton = (props) => { 
+    return <HeaderButton {...props} IconComponent={Ionicons} iconSize={23} color={Colors.primaryColor}/>  //..props is used to forward all the props
+}
+export default CustomHeaderButton;
+
+
+In a Screen file:
+import { HeaderButtons, Item } from "react-navigation-header-buttons";
+import { HeaderButton} from "../components/HeaderButton"
+
+Screen.navigationOptions = navigationData => {
+  return {
+    headerTitle: "HesoYam,
+    headerRight: <HeaderButtons HeaderButtonComponent={HeaderButton}>
+      <Item title="Favorite" iconName="ios-star" onPress={() =>{}} />
+    </HeaderButtons>
+  };
+};
+
+
+
+BottomTabNavigator:
+
+const MealsFavTabNavigator = createBottomTabNavigator({
+  Meals: MealsNavigator,   //MealsNavigator is the stack navigator
+  Favorites: FavoritesScreen
+}, {
+    tabBarOptions: {  //manipulating our tab bar , instead we can use other options , see docs
+      
+    }
+});
+https://reactnavigation.org/docs/en/bottom-tab-navigator.html
+
+
+When defining a navigator, you can also add navigationOptions to it:
+
+const SomeNavigator = createStackNavigator({
+    ScreenIdentifier: SomeScreen
+}, {
+    navigationOptions: {
+        // You can set options here!
+        // Please note: This is NOT defaultNavigationOptions!
+    }
+});
+Don't mistake this for the defaultNavigationOptions which you could also set there (i.e. in the second argument you pass to createWhateverNavigator()).
+
+
+
+npm install react-navigation-paper
+npm install react-navigation-material-bottom-tabs.
