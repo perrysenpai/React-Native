@@ -395,10 +395,22 @@ BottomTabNavigator:
 
 const MealsFavTabNavigator = createBottomTabNavigator({
   Meals: MealsNavigator,   //MealsNavigator is the stack navigator
-  Favorites: FavoritesScreen
+  Favorites: {screen: FavoritesScreen,
+         navigationOptions: {
+        tabBarIcon: (tabInfo) => {
+          return (
+            <Ionicons
+              name="ios-restaurant"
+              size={25}
+              color={tabInfo.tintColor}
+            />
+          );
+        }
+             
+  }
 }, {
     tabBarOptions: {  //manipulating our tab bar , instead we can use other options , see docs
-      
+      activeTintColor:"black"
     }
 });
 https://reactnavigation.org/docs/en/bottom-tab-navigator.html
@@ -420,3 +432,120 @@ Don't mistake this for the defaultNavigationOptions which you could also set the
 
 npm install react-native-paper
 npm install react-navigation-material-bottom-tabs.
+
+
+
+Adding sidedrawer:
+const MainNavigator = createDrawerNavigator({
+  MealsFavs: MealsFavTabNavigator,
+  Filters: FiltersNavigator
+});
+
+to use it first we need to set an icon and then onPress we want to present the toggleDrawer function
+CategoriesScreen.navigationOptions = (navData) => {
+  return {
+    headerTitle: "Meal Categories",
+    headerLeft: () => (
+      <HeaderButtons HeaderButtonComponent={HeaderButton}>
+        <Item
+          title="Favorite"
+          iconName="ios-menu"
+          onPress={() => {
+            navData.navigation.toggleDrawer();
+          }}
+        />
+      </HeaderButtons>
+    )
+  };
+};
+
+if we want to configure the drawer: https://reactnavigation.org/docs/en/drawer-navigator.html
+
+IF WE WANT TO PASS INFO FROM COMPONENTS TO NAVIGATION OPTIONS:
+props.navigation.setParams
+USAGE:   const [isGlutenFree, setIsGlutenFree] = useState(false);
+         const [isLactoseFree, setIsLactoseFree] = useState(false);
+         const [isVegan, setIsVegan] = useState(false);
+         const [isVegetarian, setIsVegetarian] = useState(false);
+
+//useCallback is a hook and it makes suret that our functional component changes only when the any of the ### changes
+  const saveFilters = useCallback(() => {
+    const appliedFilters = {
+      glutenFree: isGlutenFree,
+      lactoseFree: isLactoseFree,
+      vegan: isVegan,
+      isVegetarian: isVegetarian
+    };
+
+    console.log(appliedFilters);
+  }, [isGlutenFree, isLactoseFree, isVegan, isVegetarian]);    //###
+
+    
+    
+    now to make sure that this is executed and values are changed on rerender
+    
+    useEffect(()=>{
+        navigation.setParam(save: appliedFilters)
+    })
+
+
+     noew in navigationOptions, we have acces to navData. lecture 139
+     headerRight: ()=>(
+      <HeaderButtons HeaderButtonComponent={HeaderButton}>
+        <Item 
+          title="Save"
+          iconName="ios-save"
+          onPress={navData.navigation.getParam("save")}  // this is executed on pressing the icon
+        />
+      </HeaderButtons>
+    )
+    
+useCallback():
+
+useCallback() often is used in conjunction with useEffect() because it allows you to prevent the re-creation of a function. For this, it's important to understand that functions are just objects in JavaScript.
+
+Therefore, if you have a function (A) inside of a function (B), the inner function (=A) will be recreated (i.e. a brand-new object is created) whenever the outer function (B) runs.
+
+That means that in a functional component, any function you define inside of it is re-created whenever the component rebuilds.
+
+Example:
+
+const MyComponent = props => {
+    const innerFunction = () => {
+        // a function in a function!
+        // this function object (stored in the 'innerFunction' constant) is constantly re-built
+        // to be precise: It's re-built when MyComponent is re-built 
+        // MyComponent is re-built whenever its 'props' or 'state' changes
+    };
+};
+Normally, it's no problem, that innerFunction is re-created for every render cycle.
+
+But it becomes a problem if innerFunction is a dependency of useEffect():
+
+const MyComponent = props => {
+    const innerFunction = () => {
+        // do something!
+    };
+ 
+    useEffect(() => {
+        innerFunction();
+        // The effect calls innerFunction, hence it should declare it as a dependency
+        // Otherwise, if something about innerFunction changes (e.g. the data it uses), the effect would run the outdated version of innerFunction
+    }, [innerFunction]);
+};
+Why is this code problematic?
+
+The effect re-runs whenever innerFunction changes. As stated, it is re-created whenever MyComponent re-builds.
+
+Because functions are objects and objects are reference types (see: https://academind.com/learn/javascript/reference-vs-primitive-values/), that means that the effect will re-run for every render cycle.
+
+That might still not be a huge problem but it definitely is, if innerFunction does something that causes MyComponent to re-build (i.e. if it either does something that changes the props or the state).
+
+Now, you would have an infinite loop!
+
+useCallback() helps you prevent this.
+
+By wrapping it around a function declaration and defining the dependencies of the function, it ensures that the function is only re-created if its dependencies changed.
+
+Hence the function is NOT re-built on every render cycle anymore => You break out of the infinite loop!
+     
