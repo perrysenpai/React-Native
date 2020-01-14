@@ -549,3 +549,7 @@ By wrapping it around a function declaration and defining the dependencies of th
 
 Hence the function is NOT re-built on every render cycle anymore => You break out of the infinite loop!
      
+
+
+
+REDUX:  npm install redux react-redux
