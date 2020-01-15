@@ -550,6 +550,71 @@ By wrapping it around a function declaration and defining the dependencies of th
 Hence the function is NOT re-built on every render cycle anymore => You break out of the infinite loop!
      
 
+HOOKS CAN BE USE INSIDE A HOOK OR A FXNAL COMPONENENT.
+
+XXXXXXXXXXXXXX    REDUX    XXXXXXXXXXXXXXXXX
+:  npm install redux react-redux
+we make a store which contains actions and reducers:
+
+REDUCER: 
+import { MEALS } from "../../data/dummy-data";
+const initialState = {
+    meals:MEALS,
+    filteredMeals: MEALS,
+    favoriteMeals: []
+}
+
+const mealsReducer = (state = initialState, action) => { 
+    return state;
+}
+
+export default mealsReducer;
 
 
-REDUX:  npm install redux react-redux
+ACTIONS:
+
+
+in Our APP.js we create a store , combine all the reducers , here only one, pass the reducer to our store and surround our app with provider.
+
+import { Provider } from "react-redux";
+import { createStore, combineReducers } from "redux";
+import mealsReducer from "./store/reducers/meals";
+
+const rootReducer = combineReducers({
+  meals: mealsReducer // we will be able to acces the state using this meals key
+});
+
+const store = createStore(rootReducer);
+
+In export default:
+return (
+    <Provider store={store}>
+      <MealsNavigator />  // main container 
+    </Provider>
+  );
+
+
+to get access to values. in individual files :
+import {useSelector} from "react-redux";
+const name=useSelector((state)=>state.meals.favoriteMeals;
+
+HOW TO GET ACCESS TO STORE INSIDE NAVIGATIONOTPIONS:
+what we can do is use setparam: 
+
+const avaialableMeals = useSelector(state => state.meals.meals);  // using useSelector to get access 
+const mealId = props.navigation.getParam('mealId');$$$$
+const selectedMeals=availableMeals.filter(meal=>meal.id===mealId) 
+useEffect(()=>{                                                   // useEffect is usedbecause we dont want to end up in infinite loop on every rerender
+        props.navigation.setParam({mealTitle: selectedMeals.title}
+}, [selectedMeals])
+
+Down in navigationOptions :
+const MealsTitle=navData.navigation.getParam("mealTitle");
+now this can be used by us.
+
+PROBLEM: we will see that on app refresh, we will see that our title is loading late because useEffet is loaded after each renderCycle.
+instead of this, on the Screen we pass the id i.e check line 605 $$$$, we can see that we can we get mealId prop from a screen, so we can send
+mealTitle also in that screen so that we could use it in navigationOptionos without any problem.
+
+
+
