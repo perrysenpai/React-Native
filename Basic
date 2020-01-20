@@ -621,3 +621,27 @@ mealTitle also in that screen so that we could use it in navigationOptionos with
 
 use  useForeground with TouchableNativeFeedback lecture 162 around 10:15
 
+TO have an icon for the drawer also. we can use the syntax: 
+const ProductsNavigator = createStackNavigator(
+  {
+    ProductsOverview: ProductsOverviewScreen,
+    ProductDetail: ProductDetailScreen,
+    Cart: CartScreen
+  },
+  {
+    navigationOptions: {  // these are available when this navigator is used inside another navigator which is shopnaviagtor
+      drawerIcon: drawerConfig => <Ionicons name={"md-list"} size={23} color={drawerConfig.tintColor}/>
+    },
+    defaultNavigationOptions: defaultNavOptions
+  }
+);
+
+const ShopNavigator = createDrawerNavigator({
+  Products: ProductsNavigator,
+  Orders:OrdersNavigator
+}, {
+    contentOptions: {
+    activeTintColor: Colors.primary
+    }
+})
+
