@@ -151,7 +151,7 @@ IMPORTANT XXX: if we want to add a text( from textinput) to an array , ALWAYS ma
                 renderItem={({item})=><Text>{item.index}</Text>}
                 keyExtractor={(item, index)=>item.id}
            />
-           
+          
            each array element of listgoals is as {value: inputText, id : Math.random().toString() }
            we can have more that one columns, i.e a grid by default it is one. we use
            <FlatList numColumns={2}/>
